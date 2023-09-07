@@ -14,15 +14,6 @@ function buildSections(sections) {
     });
 }
 
-function header(section) {
-    const container = c("section", null, "header-container");
-    const header = c("h1", section.header);
-    const image = c("img");
-    image.src = section.images[0];
-    container.append(header, image);
-    return container;
-}
-
 function chooseRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
@@ -38,6 +29,15 @@ function header(section) {
         container.append(image);
     }
 
+    return container;
+}
+
+function header(section) {
+    const container = c("section", null, "header-container");
+    const header = c("h1", section.header);
+    const image = c("img");
+    image.src = section.images[0];
+    container.append(header, image);
     return container;
 }
 
@@ -60,3 +60,6 @@ function gallery(section) {
 
     return container;
 }
+
+function contact(section){}
+function links(section){}
