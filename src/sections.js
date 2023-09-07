@@ -32,15 +32,6 @@ function header(section) {
     return container;
 }
 
-function header(section) {
-    const container = c("section", null, "header-container");
-    const header = c("h1", section.header);
-    const image = c("img");
-    image.src = section.images[0];
-    container.append(header, image);
-    return container;
-}
-
 function text(section) {
     const container = c('section', null, 'text-container');
     const header = c('h2', section.header);
