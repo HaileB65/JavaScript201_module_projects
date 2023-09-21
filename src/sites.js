@@ -82,7 +82,7 @@ PORTFOLIO_SITE = {
 		{
 			type: "header",
 			header: "Nomad Coder",
-			backgroundimage: "https://raw.githubusercontent.com/CodingNomads/js_201_labs/master/resources/site_generator/coding_1.jpg"
+			backgroundImage: "https://raw.githubusercontent.com/CodingNomads/js_201_labs/master/resources/site_generator/coding_1.jpg"
 		},
 		{
 			type: "gallery",
