@@ -52,5 +52,34 @@ function gallery(section) {
     return container;
 }
 
-function contact(section){}
+function contact(section){
+    const container = c('section', null, 'contact-container');
+
+    if (section.hasOwnProperty('header')) {
+        container.append(c('h2', section.header));
+    }
+
+    if (section.hasOwnProperty('email')) {
+        const emailLink = c('a', 'E-mail me');
+        emailLink.href = 'mailto:' + section.email;
+        container.append(emailLink);
+    }
+    if (section.hasOwnProperty('phone')) {
+        container.append(c('p', section.phone));
+    }
+
+    if (section.hasOwnProperty('form')) {
+        container.append(build_form(section.form));
+    }
+
+    if (section.hasOwnProperty('images')) {
+        const src = chooseRandomItem(section.images);
+        const image = c('img', null, 'gallery_image');
+        image.src = src;
+        container.append(image);
+    }
+
+    return container;
+}
+
 function links(section){}
