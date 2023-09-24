@@ -8,7 +8,7 @@ function contact(section) {
 
     // ...
 
-    return container
+    return container;
 }
 
 function build_form(fields) {
@@ -67,9 +67,22 @@ function isEmail(string){
 function emailValidator(e){
     if(!isEmail(e.target.value)){
         e.target.style.backgroundColor = "red";
+        alert("Must contain '@' symbol in email.");
     } else {
-        string.target.style.backgroundColor = "";
+        e.target.style.backgroundColor = "";
     }
 }
 
+const form = document.getElementById("form");
+
+function handleSubmit(event){
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+    console.log(formData);
+    formData.forEach((key, value) => console.log(v, k));
+}
+
+form.addEventListener(`submit`, handleSubmit);
 
