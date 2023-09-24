@@ -49,6 +49,8 @@ function build_form(fields) {
     submitButton.type = 'submit';
     submitButton.value = 'Submit';
 
+    formElement.addEventListener("submit", submitHandler);
+
     formElement.append(submitButton);
 
     return formElement;
@@ -67,7 +69,7 @@ function isEmail(string){
 function emailValidator(e){
     if(!isEmail(e.target.value)){
         e.target.style.backgroundColor = "red";
-        alert("Must contain '@' symbol in email.");
+        alert("Email Must contain '@' symbol");
     } else {
         e.target.style.backgroundColor = "";
     }
@@ -75,14 +77,24 @@ function emailValidator(e){
 
 const form = document.getElementById("form");
 
-function handleSubmit(event){
-    event.preventDefault();
+function submitHandler(e) {
+    e.preventDefault();
 
-    const form = event.target;
-    const formData = new FormData(form);
-    console.log(formData);
-    formData.forEach((key, value) => console.log(v, k));
+    const formData = new FormData(e.target);
+    const entryIterator = formData.entries();
+
+    output = {};
+
+    let data = entryIterator.next();
+    while (data.done !== true) {
+        output[data.value[0]] = data.value[1];
+        data = entryIterator.next();
+    }
+
+    if (!isEmail(output['email'])) {
+        alert('Invalid Form Submission');
+        return;
+    }
+
+    console.log(output);
 }
-
-form.addEventListener(`submit`, handleSubmit);
-
