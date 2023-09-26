@@ -1,12 +1,7 @@
 function contact(section) {
-
-    // ...
-
     if (section.hasOwnProperty("form")) {
         container.append(build_form(container.form));
     }
-
-    // ...
 
     return container;
 }
@@ -35,7 +30,7 @@ function build_form(fields) {
             input.id = idString;
             input.name = 'email';
 
-            input.addEventListener("change", emailValidator);
+            input.addEventListener("input", emailValidator);
 
             const label = c('label', 'E-mail');
             label.htmlFor = idString;
@@ -69,13 +64,10 @@ function isEmail(string){
 function emailValidator(e){
     if(!isEmail(e.target.value)){
         e.target.style.backgroundColor = "red";
-        alert("Email Must contain '@' symbol");
     } else {
         e.target.style.backgroundColor = "";
     }
 }
-
-const form = document.getElementById("form");
 
 function submitHandler(e) {
     e.preventDefault();
